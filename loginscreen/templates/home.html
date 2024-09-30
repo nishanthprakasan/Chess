@@ -1,0 +1,87 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chessboard</title>
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" 
+    integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <form method="POST" action="{% url 'logout' %}">
+        {% csrf_token %}
+        <button id="logout-button" type="submit">Logout</button>
+    </form>
+    <div class="game-details">
+        <div class="move-store"></div>
+        <div class="result-buttons">
+            <button id="draw-button">
+                <div class="draw-icon">
+                    <i class="fa-solid fa-1 fa-xs"></i>
+                    <i class="fa-solid fa-slash fa-rotate-90 fa-xs"></i>
+                    <i class="fa-solid fa-2 fa-xs"></i>
+                </div>
+                Draw
+            </button>
+            <button id="resign-button">
+                <i class="fa-solid fa-flag"></i>
+                Resign
+            </button>
+        </div> 
+    </div>
+    <div class="game-options">
+        <div class="promotion-box">
+            <div class="promotion-piece"><button class="queen-button"></button></div>
+            <div class="promotion-piece"><button class="rook-button"></button></div>
+            <div class="promotion-piece"><button class="bishop-button"></button></div>
+            <div class="promotion-piece"><button class="knight-button"></button></div>
+        </div>
+        <div class="draw-offer-option">
+            <div class="draw-text">Opponent has offered draw</div>
+            <div class="draw-options">
+                <button id="accept-offer">Accept</button>
+                <button id="decline-offer">Decline</button>
+            </div>
+        </div>
+        <div class="new-game-option">
+            <div class="draw-offer">
+                Draw offer sent.
+            </div>
+            <div class="time-control">
+                <button id="1-min">1 min</button>
+                <button id="3-min">3 min</button>
+                <button id="5-min">5 min</button>
+                <button id="10-min">10 min</button>
+            </div>
+            <button id="new-game">New Game</button>
+        </div>
+    </div>
+    <div class="game">
+        <div class="game-result">
+            <div class="result">
+                <p id="status"></p>
+                <p id="status-info"></p>
+            </div>
+            <i class="fa-solid fa-xmark" id="close-icon"></i>
+        </div>
+        <div class="player-black">
+            <span class="player-details-black">Opponent</span><span class="time-player-black">0:00</span>
+        </div>
+        <div class="chessboard">
+            <!-- Adding squares and pieces done by JS -->
+        </div>
+        <div class="player-white">
+            <span class="player-details-white">{{ username }}</span><span class="time-player-white">0:00</span>
+        </div>
+    </div>
+    <script src="{% static 'chess.js' %}"></script>
+    <script src="{% static 'validation.js' %}"></script>
+    <script>
+        const checkOpp = "{% url 'checkOpp' %}"
+        const updateAction = "{% url 'update_action' %}"
+    </script> 
+</body>
+</html>

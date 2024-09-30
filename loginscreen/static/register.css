@@ -1,0 +1,108 @@
+
+
+body{
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+    background-color: #f3f5f6;
+}
+
+h2{
+    font-family: 'Montserrat';
+    font-size: 2.5rem;
+}
+
+input ::placeholder{
+    font-family: "Noto Sans";
+}
+.register ,.login {
+    height: 92vh;
+    width: 45vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid black;
+    border-radius: 8px;
+    background-color: #ffffff;
+}
+.img{
+    background-image: url(register.jpg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    height: 90vh;
+    width: 15vw;
+    transform: translateY(200px);
+}
+.register-box{
+    height: 92vh;
+    width: 25vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    gap: 5px;
+}
+.username, .password, .email, .password-recheck{
+    background-color:#f1f0f0;
+    height: 40px;
+    width: 200px;
+    border: 1px solid black;
+    border-radius: 4px;
+}
+.or-text{
+    display: flex;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+}
+.or-text::before,
+.or-text::after {
+    content: '';
+    flex: 1;
+    border-bottom: 1px solid black;
+    margin: 0 10px;
+}
+.social-sign-in{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    gap: 5px;
+}
+.social-button , .register-button , .login-button{
+    height: 40px;
+    width: 200px;
+    border-radius: 4px;
+    font: 1.2rem;
+    font-family: "Noto Sans";
+    cursor: pointer;
+    border: 1px solid black;
+    background-color: #f1f0f0;
+    
+}
+.register-button{
+    width: 100px;
+}
+.icon{
+    transform: translate(40px);
+}
+
+.login-box{
+    height: 92vh;
+    width: 25vw;
+    display: flex;
+    flex-direction: column;
+    justify-content:center;
+    align-items: center;
+    gap: 20px;
+}
+
+.text-error{
+    font-family: "Noto Sans";
+}

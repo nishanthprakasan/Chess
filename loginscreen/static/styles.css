@@ -1,0 +1,254 @@
+
+body {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-around;
+    width: 100%;
+    height: 100%;
+    background-color: #dcdcdc;
+    margin: 0;
+    overflow: hidden;
+}
+.game-details{
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    height: 90vh;
+    width: 200px;
+    transform: translateX(-80px);
+    gap: 10px;
+}
+.move-store{
+    height: 80vh;
+    width: 300px;
+    border: 1px solid black;
+    display: grid;
+    grid-template-columns: 10px 95px 95px;
+    grid-auto-rows: 25px;
+    text-align: center;
+    gap: 0;
+    overflow-y: auto;
+}
+
+.result-buttons{
+    display: flex;
+    width: 100%;
+    gap :5px;
+    font-size: 10px;
+}
+
+#draw-button , #resign-button{
+    display: flex;
+    text-align: center;
+    border: transparent;
+    background-color: #dcdcdc;;
+    gap: 5px;
+    padding-left: 10px;
+    height: 30px;
+    width: 100px;
+    cursor: pointer;
+}
+
+.draw-icon{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    font-size: 15px;
+    gap: 6px;
+}
+
+.game-options{
+    display: flex;
+    flex-direction: column;
+    align-content: space-evenly;
+    justify-content: space-evenly;
+    gap: 20px;
+}
+
+.promotion-box{
+    visibility: hidden;
+    display: flex;
+    flex-direction: row;
+    height : 80px;
+    width: 260px;
+    border: 1px solid black;
+    border-radius: 8px;
+    background-color: #008080;
+}
+.queen-button , .rook-button , .knight-button , .bishop-button , #new-game{
+    height: 100%;
+    width: 100%;
+    font-size: 30px;
+    background-color: hsl(180, 21%, 71%);
+    border: 1px solid black;
+    cursor: pointer;
+}
+.promotion-piece{
+    text-align: center;
+    align-content: center;
+    height : 100%;
+    width : 25%;
+    border: transparent;
+}
+#new-game{
+    height: 50px;
+    width: 250px;
+    background-color: hsl(180, 22%, 79%);
+    font-size: 20px;
+    text-align: center;
+    border-radius: 8px;
+}
+.game{
+    margin-top: 20px;
+    gap: 2px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    pointer-events: none;
+}
+.player-black ,.player-white{
+    display: flex;
+    justify-content: space-between;
+    width: 480px;
+    text-align: left;
+    color: black;
+    font-weight: 500;
+}
+
+
+.time-player-white, .time-player-black{
+    text-align: center;
+    height: 18px;
+    width: 45px;
+    border: 1px solid black;
+    background-color: rgb(190, 187, 187);
+}
+
+.chessboard {
+    display: grid;
+    grid-template-columns: repeat(8, 60px); 
+    grid-template-rows: repeat(8, 60px);    
+    border: 2px solid #222;
+    position: relative;
+    z-index: 1;
+}
+
+.chessboard.flip,.piece.flip {
+    transform: rotate(180deg);
+}
+
+.square{
+    width: 60px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+    cursor: pointer;
+}
+
+.white {
+    background-color: #f0d9b5;
+}
+
+.black {
+    background-color: #b58863;
+}
+
+.piece {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    user-select: none; 
+}
+
+.game-result{
+    background-color: #dcdcdc;
+    visibility: hidden;
+    position: absolute;
+    height: 100px;
+    width: 200px;
+    border: 1px solid black;
+    border-radius: 4px;
+    z-index: 10;
+    text-align: center;
+    top: -125px;
+}
+.game-result.animate{
+    animation: gameEnd 3s forwards;
+}
+#close-icon{
+    position: absolute;
+    top : 5px;
+    right : 10px;
+    cursor: pointer;
+}
+
+.new-game-option{
+    gap : 2px;
+    width: 250px;
+    height: 100px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.time-control{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+    height: 100%;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
+.time-control button , #accept-offer, #decline-offer{
+    background-color: transparent;
+    height: 40px;
+    width: 25%;
+    border: 1px solid black;
+    border-radius: 4px;
+    cursor: pointer;
+}
+#logout-button{
+    margin-top: 2px;
+    height: 50px;
+    width: 100px;
+    text-align: center;
+    text-decoration: underline;
+    background-color: transparent;
+    border: transparent;
+    cursor: pointer;
+}
+
+.draw-offer-option{
+    visibility: hidden;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+}
+
+.draw-options{
+    display: flex;
+    flex-direction: row;
+    margin: 2px;
+    gap: 10px;
+    align-content: center;
+}
+
+.draw-offer{
+    visibility: hidden;
+    transform: translate(60px);
+}
+
+@keyframes gameEnd{
+    from{
+        top: -125px;
+    }
+    to{
+        top: 50%;
+    }
+}
